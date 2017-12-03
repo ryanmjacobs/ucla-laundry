@@ -1,0 +1,19 @@
+{
+  "name": "laundry",
+  "version": "0.0.1",
+  "description": "ucla laundry data study",
+  "main": "app.js",
+  "dependencies": {
+    "puppeteer": "^0.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "laundry",
+    "ucla"
+  ],
+  "author": "Ryan Jacobs <ryan.mjacobs@gmail.com>",
+  "license": "MIT"
+}
