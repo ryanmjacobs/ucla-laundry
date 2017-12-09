@@ -9,9 +9,7 @@ async function run() {
     const page = await browser.newPage();
 
     await page.goto(
-        "https://www.laundryalert.com/cgi-bin/ucla6023/LMRoom"+
-        "?XallingPage=LMPage&Halls=8&PreviousHalls=&RoomPersistence="+
-        "&MachinePersistenceA=&MachinePersistenceB=");
+        "https://www.laundryalert.com/cgi-bin/ucla6023/LMRoom?CallingPage=LMPage&Halls=9");
 
     let machines = await page.evaluate(() => {
         let machines = [];
