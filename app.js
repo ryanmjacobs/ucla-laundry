@@ -28,14 +28,13 @@ async function run() {
             let eta    = tds[5];
 
             // clean up status
-            status.replace(/<(?:.|\n)*?>/gm, "");
+            status = status.replace("<br>", "-").replace(/<(?:.|\n)*?>/gm, "");
 
             // clean up eta
             if (eta.innerHTML.trim().startsWith("<font"))
                 eta = eta.children[0].innerHTML.trim();
             else
                 eta = eta.innerHTML.trim();
-
             if (eta == "&nbsp;")
                 eta = "";
 
