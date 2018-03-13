@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 const puppeteer = require("puppeteer");
 
+const HALL = "Hedrick";
+const halls = {
+    "Hedrick": "https://www.laundryalert.com/cgi-bin/ucla6023/LMRoom?CallingPage=LMPage&Halls=8"
+};
+
 async function run() {
     const browser = await puppeteer.launch({
       headless: true,
@@ -8,8 +13,7 @@ async function run() {
     });
     const page = await browser.newPage();
 
-    await page.goto(
-        "https://www.laundryalert.com/cgi-bin/ucla6023/LMRoom?CallingPage=LMPage&Halls=8");
+    await page.goto(halls[HALL]);
 
     let machines = await page.evaluate(() => {
         let machines = [];
@@ -41,6 +45,10 @@ async function run() {
 
         return machines;
     });
+
+    // account for weird dryer #2
+    if (HALL == "Hedrick")
+        machines[1].type = machines[1].type.replace("Washer", "Dryer");
 
     console.log("# " + (new Date()).toLocaleString());
     console.log("index,type,status,eta");
