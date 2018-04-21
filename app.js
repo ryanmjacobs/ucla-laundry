@@ -6,7 +6,7 @@ const halls = {
     "Hedrick": "https://www.laundryalert.com/cgi-bin/ucla6023/LMRoom?CallingPage=LMPage&Halls=8"
 };
 
-async function run() {
+async function main(opts = {quiet:false}) {
     const browser = await puppeteer.launch({
       headless: true,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
@@ -50,13 +50,20 @@ async function run() {
     if (HALL == "Hedrick")
         machines[1].type = machines[1].type.replace("Washer", "Dryer");
 
-    console.log("# " + (new Date()).toLocaleString());
-    console.log("index,type,status,eta");
-    for (let m of machines) {
-        console.log(`${m.index},${m.type},${m.status},${m.eta}`);
+    if (!opts.quiet) {
+        console.log("# " + (new Date()).toLocaleString());
+        console.log("index,type,status,eta");
+        for (let m of machines) {
+            console.log(`${m.index},${m.type},${m.status},${m.eta}`);
+        }
     }
 
     browser.close();
+    return machines;
 }
 
-run();
+module.exports = main;
+
+// program called directly with ./app.js
+if (require.main === module)
+    main();
