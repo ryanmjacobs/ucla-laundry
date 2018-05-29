@@ -1,5 +1,5 @@
 {
-  "name": "laundry",
+  "name": "ucla-laundry",
   "version": "1.0.0",
   "description": "ucla laundry data study",
   "main": "fetch.js",
@@ -14,6 +14,6 @@
     "laundry",
     "ucla"
   ],
-  "author": "Ryan Jacobs <ryan.mjacobs@gmail.com>",
+  "author": "Ryan Jacobs <ryan@rmj.us>",
   "license": "MIT"
 }
