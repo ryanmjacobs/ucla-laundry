@@ -1,6 +1,6 @@
 {
   "name": "ucla-laundry",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ucla laundry data study",
   "main": "fetch.js",
   "dependencies": {

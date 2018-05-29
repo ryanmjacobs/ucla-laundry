@@ -1,4 +1,5 @@
-# ucla laundry
+# ucla-laundry
+[![npm](https://img.shields.io/npm/v/ucla-laundry.svg)](https://www.npmjs.com/package/ucla-laundry)
 
 ## Fetch data
 Dependencies: npm, Node.js
