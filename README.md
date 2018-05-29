@@ -2,6 +2,7 @@
 
 ```shell
 $ git clone https://github.com/ryanmjacobs/ucla-laundry
+$ cd ucla-laundry
 $ npm install
 $ ./fetch.js
 ```
@@ -49,4 +50,11 @@ index,type,status,eta
 38,Stack Washer (bottom),In Use,18 min
 39,Stack Dryer (top),Available,13 min ago
 40,Stack Washer (bottom),Available,
+```
+
+## Plot ~60,000 data points
+```shell
+$ git clone https://github.com/ryanmjacobs/ucla-laundry
+$ cd ucla-laundry/plot
+$ ./plot.r
 ```
