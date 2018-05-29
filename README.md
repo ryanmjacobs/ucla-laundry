@@ -1,5 +1,6 @@
-## ucla laundry
+# ucla laundry
 
+## Fetch data
 Dependencies: npm, Node.js
 ```shell
 $ git clone https://github.com/ryanmjacobs/ucla-laundry
@@ -16,7 +17,7 @@ $ cd ucla-laundry/plot
 $ ./plot.r
 ```
 
-## example data
+## Example data
 ```
 # 2/6/2018, 11:30:05 AM
 index,type,status,eta
