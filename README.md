@@ -1,5 +1,6 @@
 ## ucla laundry
 
+Dependencies: npm, Node.js
 ```shell
 $ git clone https://github.com/ryanmjacobs/ucla-laundry
 $ cd ucla-laundry
