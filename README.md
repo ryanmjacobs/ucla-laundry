@@ -11,7 +11,7 @@ $ ./fetch.js
 ```
 
 ## Plot ~60,000 data points [[pdf](https://github.com/ryanmjacobs/ucla-laundry/blob/master/plot/may_29_2018.pdf)]
-Dependencies: Ruby, R
+Dependencies: Ruby, R, D
 ```shell
 $ git clone https://github.com/ryanmjacobs/ucla-laundry
 $ cd ucla-laundry/plot
