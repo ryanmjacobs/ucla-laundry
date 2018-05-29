@@ -2,7 +2,7 @@
   "name": "laundry",
   "version": "0.0.1",
   "description": "ucla laundry data study",
-  "main": "app.js",
+  "main": "fetch.js",
   "dependencies": {
     "puppeteer": "^0.13.0"
   },

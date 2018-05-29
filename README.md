@@ -3,7 +3,7 @@
 ```shell
 $ git clone https://github.com/ryanmjacobs/ucla-laundry
 $ npm install
-$ ./app.js
+$ ./fetch.js
 ```
 ## example data
 ```

@@ -64,6 +64,6 @@ async function main(opts = {quiet:false}) {
 
 module.exports = main;
 
-// program called directly with ./app.js
+// program called directly with ./fetch.js
 if (require.main === module)
     main();
