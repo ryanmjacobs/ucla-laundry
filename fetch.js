@@ -19,7 +19,6 @@ async function main(opts = {quiet:false}, dorm=8) {
                 `#tablea > tbody > tr:nth-child(1) > td:nth-child(4) > form `+
                 `> table:nth-child(4) > tbody`).children.length;
 
-        // maximum 1000 machines
         for (let i = 2; i < row_count-1; i++) {
             let tr = document.querySelector(
                 `#tablea > tbody > tr:nth-child(1) > td:nth-child(4) > form `+
