@@ -30,4 +30,5 @@ async function push(machines) {
   }
 }
 
-laundry({quiet:true}).then(push);
+const dorms = ["Hedrick Hall"];
+dorms.map(dorm => laundry({quiet:true}, dorm).then(push));
