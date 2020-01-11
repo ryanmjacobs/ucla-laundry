@@ -4,6 +4,7 @@
   "description": "ucla laundry data study",
   "main": "fetch.js",
   "dependencies": {
+    "pg": "^7.17.1",
     "puppeteer": "^1.20.0"
   },
   "devDependencies": {},
