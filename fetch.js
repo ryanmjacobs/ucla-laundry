@@ -15,12 +15,17 @@ async function main(opts = {quiet:false}, dorm=8) {
     let machines = await page.evaluate(() => {
         let machines = [];
 
-        for (let i = 2; i < 42; i++) {
+        const row_count = document.querySelector(
+                `#tablea > tbody > tr:nth-child(1) > td:nth-child(4) > form `+
+                `> table:nth-child(4) > tbody`).children.length;
+
+        // maximum 1000 machines
+        for (let i = 2; i < row_count-1; i++) {
             let tr = document.querySelector(
                 `#tablea > tbody > tr:nth-child(1) > td:nth-child(4) > form `+
                 `> table:nth-child(4) > tbody > tr:nth-child(${i})`);
-            let tds = tr.children;
 
+            let tds = tr.children;
             let index  = tds[2].children[0].children[0].children[0].innerHTML.trim();
             let type   = tds[3].children[0].children[0].innerHTML.trim();
             let status = tds[4].children[0].children[0].innerHTML.trim();
