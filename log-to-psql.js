@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
-const laundry  = require("./fetch");
+const laundry    = require("./fetch");
+const dorm_names = require("./dorm_names");
+
 const { Pool } = require("pg");
 
 const pool = new Pool();
 
-async function push(machines) {
+async function push(machines, dorm_name, dorm_id) {
   const client = await pool.connect();
 
   try {
@@ -14,9 +16,9 @@ async function push(machines) {
     const res = machines.map(machine => {
       return client.query(
         "INSERT INTO ucla_laundry" +
-        "  (dorm, index, type, status, eta)" +
+        "  (dorm_name, dorm_id, index, type, status, eta)" +
         "  VALUES ($1, $2, $3, $4, $5) RETURNING *",
-        ["Hedrick Hall", machine.index, machine.type, machine.status, machine.eta]
+        [dorm_name, dorm_id, machine.index, machine.type, machine.status, machine.eta]
       );
     });
 
@@ -30,5 +32,7 @@ async function push(machines) {
   }
 }
 
-const dorms = ["Hedrick Hall"];
-dorms.map(dorm => laundry({quiet:true}, dorm).then(push));
+dorm_names.map(async (name, index) => {
+  const machines = await laundry({quiet:true}, index);
+  await push(machines, name, index);
+});
