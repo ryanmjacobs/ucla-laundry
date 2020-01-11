@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 const puppeteer = require("puppeteer");
 
-const HALL = "Hedrick";
-const halls = {
-    "Hedrick": "https://www.laundryalert.com/cgi-bin/ucla6023/LMRoom?CallingPage=LMPage&Halls=8"
+const DORMS = {
+    "Hedrick Hall": "https://www.laundryalert.com/cgi-bin/ucla6023/LMRoom?CallingPage=LMPage&Halls=8"
 };
 
-async function main(opts = {quiet:false}) {
+async function main(opts = {quiet:false}, dorm="Hedrick Hall") {
     const browser = await puppeteer.launch({
       headless: true,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
 
-    await page.goto(halls[HALL]);
+    await page.goto(DORMS[dorm]);
 
     let machines = await page.evaluate(() => {
         let machines = [];
@@ -47,7 +46,7 @@ async function main(opts = {quiet:false}) {
     });
 
     // account for weird dryer #2
-    if (HALL == "Hedrick")
+    if (DORMS == "Hedrick Hall")
         machines[1].type = machines[1].type.replace("Washer", "Dryer");
 
     if (!opts.quiet) {
